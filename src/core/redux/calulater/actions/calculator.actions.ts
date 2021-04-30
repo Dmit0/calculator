@@ -14,9 +14,8 @@ export const setQuiteState = (isOff: boolean): CalculatorActionTypes  => ({
   isOff
 });
 
-export const switchSign = (sign: boolean): CalculatorActionTypes  => ({
+export const switchSign = (): CalculatorActionTypes  => ({
   type: SWITCH_SIGN,
-  sign
 });
 
 export const immediateArithmetic = (operation: ImmediateArithmetic): CalculatorActionTypes  => ({

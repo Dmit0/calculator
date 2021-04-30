@@ -1,4 +1,7 @@
-export const CONCAT_PLUS = 'CONCAT_PLUS'
+export enum ITEM {
+  CONCAT_PLUS = 'tool-box-item-both',
+  LAST = 'tool-box-item-last'
+}
 
 export enum ImmediateArithmetic {
   ROOT = '√',
@@ -15,6 +18,6 @@ export enum Memory {
 export enum ArithmeticSign {
   PLUS = '+',
   MINUS = '-',
-  INCREASE = '*',
+  INCREASE = 'X',
   DIVISION = '/'
 }

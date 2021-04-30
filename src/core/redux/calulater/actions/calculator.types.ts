@@ -20,7 +20,6 @@ interface QUITE_STATE {
 
 interface SWITCH_SIGN {
   type: typeof SWITCH_SIGN,
-  sign: boolean
 }
 
 interface IMMEDIATE_ARITHMETIC {

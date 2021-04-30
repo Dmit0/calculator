@@ -1,9 +1,12 @@
 import React from 'react';
+import { Calculator } from './modules/calculator/calculator';
+import { RootLayOut } from './modules/layOut/root';
 
 function App() {
   return (
-    <div className="App">
-    </div>
+    <RootLayOut>
+      <Calculator/>
+    </RootLayOut>
   );
 }
 

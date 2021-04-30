@@ -1,4 +1,4 @@
-import { ArithmeticSign, CONCAT_PLUS, ImmediateArithmetic, Memory } from '../enums/calculator-button.enum';
+import { ArithmeticSign, ImmediateArithmetic, ITEM, Memory } from '../enums/calculator-button.enum';
 import { arithmeticOperation, immediateArithmetic, memoryOperation, numberOperation, setQuiteState, switchSign } from '../redux/calulater/actions';
 
 export default (dispatch: (cb: any) => void) => {
@@ -6,11 +6,11 @@ export default (dispatch: (cb: any) => void) => {
     buttons: [
       {
         element: 'OFF',
-        onClick: () => dispatch(setQuiteState(true))
+        onClick: () => dispatch(setQuiteState(true)),
       },
       {
         element: '+/-',
-        onClick: (sign: boolean) => dispatch(switchSign(sign))
+        onClick: () => dispatch(switchSign()),
       },
       {
         element: ImmediateArithmetic.ROOT,
@@ -33,7 +33,7 @@ export default (dispatch: (cb: any) => void) => {
         onClick: () => dispatch(memoryOperation(Memory.MEMORY_MINUS))
       },
       {
-        element: ArithmeticSign.MINUS,
+        element: ArithmeticSign.DIVISION,
         onClick: () => dispatch(arithmeticOperation(ArithmeticSign.MINUS))
       },
       {
@@ -78,24 +78,25 @@ export default (dispatch: (cb: any) => void) => {
       },
       {
         element: '3',
-        onClick: () => dispatch(numberOperation(6))
+        onClick: () => dispatch(numberOperation(6)),
+        type: ITEM.LAST
       },
       {
         element: ArithmeticSign.PLUS,
         onClick: () => dispatch(arithmeticOperation(ArithmeticSign.PLUS)),
-        type: CONCAT_PLUS
+        type: ITEM.CONCAT_PLUS
       },
       {
         element: '0',
-        onClick: () => dispatch(numberOperation(0))
+        onClick: () => dispatch(numberOperation(0)),
       },
       {
         element: '.',
-        onClick: () => dispatch(numberOperation('.'))
+        onClick: () => dispatch(numberOperation('.')),
       },
       {
         element: ImmediateArithmetic.EXACTLY,
-        onClick: () => dispatch(immediateArithmetic(ImmediateArithmetic.EXACTLY))
+        onClick: () => dispatch(immediateArithmetic(ImmediateArithmetic.EXACTLY)),
       },
     ]
   }
