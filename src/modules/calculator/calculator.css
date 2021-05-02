@@ -13,3 +13,7 @@
 .calculator-tools {
     margin: 0 20px;
 }
+.calculator-history {
+    position: absolute;
+    top: 0;
+}

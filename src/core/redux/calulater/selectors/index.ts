@@ -6,3 +6,4 @@ const getCalculatorState = (state: RootState): CalculatorState => state.calculat
 export const getCurrentDisplay = (state: RootState) => getCalculatorState(state)?.currentDisplay;
 export const getSubDisplay = (state: RootState) => getCalculatorState(state)?.subDisplay;
 export const getIsOff = (state: RootState) => getCalculatorState(state)?.isOff;
+export const getHistory = (state: RootState) => getCalculatorState(state)?.history;

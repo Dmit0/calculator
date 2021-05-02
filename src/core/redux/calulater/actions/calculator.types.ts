@@ -5,6 +5,7 @@ export const IMMEDIATE_ARITHMETIC = 'IMMEDIATE_ARITHMETIC';
 export const MEMORY_OPERATION = 'MEMORY_OPERATION';
 export const ARITHMETIC_OPERATION = 'ARITHMETIC_OPERATION';
 export const NUM_OPERATION = 'NUM_OPERATION';
+export const SET_HISTORY = 'SET_HISTORY';
 
 export interface CalculatorState {
   isOff: boolean,
@@ -12,11 +13,17 @@ export interface CalculatorState {
   subDisplay: string,
   wasCalculated: boolean,
   memory: string,
+  history: string[]
 }
 
 interface I_QUITE_STATE {
   type: typeof QUITE,
   isOff: boolean
+}
+
+interface I_SET_HISTORY {
+  type: typeof SET_HISTORY,
+  history: string[]
 }
 
 interface I_IMMEDIATE_ARITHMETIC {
@@ -44,3 +51,4 @@ export type CalculatorActionTypes = I_QUITE_STATE
   | I_MEMORY_OPERATION
   | I_ARITHMETIC_OPERATION
   | I_NUM_OPERATION
+  | I_SET_HISTORY

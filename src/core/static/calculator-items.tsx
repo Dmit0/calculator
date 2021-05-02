@@ -1,10 +1,13 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { ArithmeticSign, ImmediateArithmetic, ITEM, Memory } from '../enums/calculator-button.enum';
 import { arithmeticOperation, immediateArithmetic, memoryOperation, numberOperation, setQuiteState } from '../redux/calulater/actions';
+import { getCurrentDisplay, getSubDisplay } from '../redux/calulater/selectors';
 
 export default () => {
 
   const dispatch = useDispatch()
+  const currentDisplay = useSelector(getCurrentDisplay);
+  const subDisplay = useSelector(getSubDisplay);
 
   return {
     buttons: [
@@ -38,7 +41,7 @@ export default () => {
       },
       {
         element: ArithmeticSign.DIVISION,
-        onClick: () => dispatch(arithmeticOperation(ArithmeticSign.DIVISION))
+        onClick: () => dispatch(arithmeticOperation(ArithmeticSign.DIVISION, subDisplay, currentDisplay))
       },
       {
         element: '7',
@@ -54,7 +57,7 @@ export default () => {
       },
       {
         element: ArithmeticSign.INCREASE,
-        onClick: () => dispatch(arithmeticOperation(ArithmeticSign.INCREASE))
+        onClick: () => dispatch(arithmeticOperation(ArithmeticSign.INCREASE, subDisplay, currentDisplay))
       },
       {
         element: '4',
@@ -70,7 +73,7 @@ export default () => {
       },
       {
         element: ArithmeticSign.MINUS,
-        onClick: () => dispatch(arithmeticOperation(ArithmeticSign.MINUS))
+        onClick: () => dispatch(arithmeticOperation(ArithmeticSign.MINUS, subDisplay, currentDisplay))
       },
       {
         element: '1',
@@ -87,7 +90,7 @@ export default () => {
       },
       {
         element: ArithmeticSign.PLUS,
-        onClick: () => dispatch(arithmeticOperation(ArithmeticSign.PLUS)),
+        onClick: () => dispatch(arithmeticOperation(ArithmeticSign.PLUS, subDisplay, currentDisplay)),
         type: ITEM.CONCAT_PLUS
       },
       {
@@ -100,7 +103,7 @@ export default () => {
       },
       {
         element: ImmediateArithmetic.EXACTLY,
-        onClick: () => dispatch(immediateArithmetic(ImmediateArithmetic.EXACTLY)),
+        onClick: () => dispatch(immediateArithmetic(ImmediateArithmetic.EXACTLY, subDisplay, currentDisplay)),
       },
     ]
   }

@@ -7,7 +7,7 @@ import {
   IMMEDIATE_ARITHMETIC,
   MEMORY_OPERATION,
   NUM_OPERATION,
-  QUITE,
+  QUITE, SET_HISTORY,
 } from '../actions';
 
 const initialState: CalculatorState = {
@@ -16,6 +16,7 @@ const initialState: CalculatorState = {
   subDisplay: '',
   wasCalculated: false,
   memory: '',
+  history: []
 };
 
 export const CalculatorStateReducer = (state = initialState, action: CalculatorActionTypes): CalculatorState => {
@@ -109,6 +110,8 @@ export const CalculatorStateReducer = (state = initialState, action: CalculatorA
           return { ...state, currentDisplay: state.memory }
         default: return state
       }
+    case SET_HISTORY:
+      return { ...state, history: action.history }
     default:
       return state;
   }

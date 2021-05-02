@@ -10,7 +10,7 @@ interface CalculatorToolBoxItemProps {
 export const CalculatorToolBoxItem: React.FC<CalculatorToolBoxItemProps> = ({ onClick, element, type }) => {
 
   return (
-      <div className={ `tool-box-item ${ type ? type : '' }` } onClick={onClick}>
+      <div className={ `tool-box-item ${ type ? type : '' }` } onClick={() => onClick()}>
         { element }
       </div>
   );
