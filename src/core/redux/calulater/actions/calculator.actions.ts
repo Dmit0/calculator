@@ -6,16 +6,11 @@ import {
   MEMORY_OPERATION,
   NUM_OPERATION,
   QUITE,
-  SWITCH_SIGN,
 } from './calculator.types';
 
 export const setQuiteState = (isOff: boolean): CalculatorActionTypes  => ({
   type: QUITE,
   isOff
-});
-
-export const switchSign = (): CalculatorActionTypes  => ({
-  type: SWITCH_SIGN,
 });
 
 export const immediateArithmetic = (operation: ImmediateArithmetic): CalculatorActionTypes  => ({
@@ -33,7 +28,7 @@ export const arithmeticOperation = (operation: ArithmeticSign): CalculatorAction
   operation
 });
 
-export const numberOperation = (num: number | string): CalculatorActionTypes  => ({
+export const numberOperation = (num: string): CalculatorActionTypes  => ({
   type: NUM_OPERATION,
   num
 });

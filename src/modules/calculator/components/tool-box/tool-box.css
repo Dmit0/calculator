@@ -5,6 +5,7 @@
     flex-wrap: wrap;
     overflow: hidden;
     justify-content: left;
+    user-select: none;
 }
 
 .tool-box-item {

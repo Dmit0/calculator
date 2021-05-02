@@ -6,7 +6,8 @@ export enum ITEM {
 export enum ImmediateArithmetic {
   ROOT = '√',
   PERCENT = '%',
-  EXACTLY = '='
+  EXACTLY = '=',
+  MOD = '+/-'
 }
 
 export enum Memory {

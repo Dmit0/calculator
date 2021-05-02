@@ -1,7 +1,11 @@
+import { useDispatch } from 'react-redux';
 import { ArithmeticSign, ImmediateArithmetic, ITEM, Memory } from '../enums/calculator-button.enum';
-import { arithmeticOperation, immediateArithmetic, memoryOperation, numberOperation, setQuiteState, switchSign } from '../redux/calulater/actions';
+import { arithmeticOperation, immediateArithmetic, memoryOperation, numberOperation, setQuiteState } from '../redux/calulater/actions';
 
-export default (dispatch: (cb: any) => void) => {
+export default () => {
+
+  const dispatch = useDispatch()
+
   return {
     buttons: [
       {
@@ -10,7 +14,7 @@ export default (dispatch: (cb: any) => void) => {
       },
       {
         element: '+/-',
-        onClick: () => dispatch(switchSign()),
+        onClick: () => dispatch(immediateArithmetic(ImmediateArithmetic.MOD)),
       },
       {
         element: ImmediateArithmetic.ROOT,
@@ -29,24 +33,24 @@ export default (dispatch: (cb: any) => void) => {
         onClick: () => dispatch(memoryOperation(Memory.MEMORY_MINUS))
       },
       {
-        element: Memory.MEMORY_MINUS,
-        onClick: () => dispatch(memoryOperation(Memory.MEMORY_MINUS))
+        element: Memory.MEMORY_PLUS,
+        onClick: () => dispatch(memoryOperation(Memory.MEMORY_PLUS))
       },
       {
         element: ArithmeticSign.DIVISION,
-        onClick: () => dispatch(arithmeticOperation(ArithmeticSign.MINUS))
+        onClick: () => dispatch(arithmeticOperation(ArithmeticSign.DIVISION))
       },
       {
         element: '7',
-        onClick: () => dispatch(numberOperation(7))
+        onClick: () => dispatch(numberOperation('7'))
       },
       {
         element: '8',
-        onClick: () => dispatch(numberOperation(8))
+        onClick: () => dispatch(numberOperation('8'))
       },
       {
         element: '9',
-        onClick: () => dispatch(numberOperation(9))
+        onClick: () => dispatch(numberOperation('9'))
       },
       {
         element: ArithmeticSign.INCREASE,
@@ -54,15 +58,15 @@ export default (dispatch: (cb: any) => void) => {
       },
       {
         element: '4',
-        onClick: () => dispatch(numberOperation(4))
+        onClick: () => dispatch(numberOperation('4'))
       },
       {
         element: '5',
-        onClick: () => dispatch(numberOperation(5))
+        onClick: () => dispatch(numberOperation('5'))
       },
       {
         element: '6',
-        onClick: () => dispatch(numberOperation(6))
+        onClick: () => dispatch(numberOperation('6'))
       },
       {
         element: ArithmeticSign.MINUS,
@@ -70,15 +74,15 @@ export default (dispatch: (cb: any) => void) => {
       },
       {
         element: '1',
-        onClick: () => dispatch(numberOperation(4))
+        onClick: () => dispatch(numberOperation('1'))
       },
       {
         element: '2',
-        onClick: () => dispatch(numberOperation(5))
+        onClick: () => dispatch(numberOperation('2'))
       },
       {
         element: '3',
-        onClick: () => dispatch(numberOperation(6)),
+        onClick: () => dispatch(numberOperation('3')),
         type: ITEM.LAST
       },
       {
@@ -88,7 +92,7 @@ export default (dispatch: (cb: any) => void) => {
       },
       {
         element: '0',
-        onClick: () => dispatch(numberOperation(0)),
+        onClick: () => dispatch(numberOperation('0')),
       },
       {
         element: '.',

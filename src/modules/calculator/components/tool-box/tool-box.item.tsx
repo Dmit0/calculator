@@ -3,13 +3,14 @@ import './tool-box.css';
 
 interface CalculatorToolBoxItemProps {
   element: string,
-  onClick(data?: any): void
+  onClick(): void
   type?: string
 }
 
 export const CalculatorToolBoxItem: React.FC<CalculatorToolBoxItemProps> = ({ onClick, element, type }) => {
+
   return (
-      <div key={element} className={ `tool-box-item ${ type ? type : '' }` } onClick={onClick}>
+      <div className={ `tool-box-item ${ type ? type : '' }` } onClick={onClick}>
         { element }
       </div>
   );
